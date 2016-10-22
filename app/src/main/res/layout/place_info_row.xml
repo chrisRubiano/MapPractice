@@ -13,10 +13,10 @@
         android:layout_height="wrap_content"
         android:background="#B3E5FC"
         card_view:cardUseCompatPadding="true"
-        card_view:cardCornerRadius="35dp"
+        card_view:cardCornerRadius="2dp"
         card_view:cardElevation="8dp"
         card_view:contentPadding="58dp"
-        card_view:cardBackgroundColor="#536DFE"
+        card_view:cardBackgroundColor="#3B7393"
 
         >
         <LinearLayout

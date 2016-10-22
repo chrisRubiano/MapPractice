@@ -1,10 +1,15 @@
-package com.example.gilberto.googlemapsrecyclerview;
+package com.example.gilberto.googlemapsrecyclerview.adapter;
 
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
+import com.example.gilberto.googlemapsrecyclerview.ListClickElement;
+import com.example.gilberto.googlemapsrecyclerview.Place;
+import com.example.gilberto.googlemapsrecyclerview.R;
 
 import java.util.List;
 
@@ -16,7 +21,7 @@ public class PlaceListAdapter extends RecyclerView.Adapter<PlaceListAdapter.View
 
     private List<Place> mPlaceList;
     private ListClickElement mListClickElement;
-    PlaceListAdapter(List<Place> placeList, ListClickElement listClickElement){
+    public PlaceListAdapter(List<Place> placeList, ListClickElement listClickElement){
         mListClickElement = listClickElement;
         mPlaceList = placeList;
     }
@@ -37,7 +42,7 @@ public class PlaceListAdapter extends RecyclerView.Adapter<PlaceListAdapter.View
         String name = place.getName() ;
         holder.titleTextView.setText(name);
         holder.latLong.setText("longitud es: "+ longitud + " "+ "latitud es: "+ latitud);
-        holder.titleTextView.setOnClickListener(new View.OnClickListener() {
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mListClickElement.onItemClick(place);
@@ -53,10 +58,12 @@ public class PlaceListAdapter extends RecyclerView.Adapter<PlaceListAdapter.View
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView titleTextView;
         TextView latLong;
+        CardView cardView;
         public ViewHolder(View itemView) {
             super(itemView);
             titleTextView = (TextView) itemView.findViewById(R.id.place_title);
             latLong = (TextView) itemView.findViewById(R.id.longLat);
+            cardView = (CardView) itemView.findViewById(R.id.card_view);
 
         }
 
